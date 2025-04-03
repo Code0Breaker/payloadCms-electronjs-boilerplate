@@ -1,0 +1,74 @@
+{
+  "main": "main/main.js",
+  "author": "shieldSoft",
+  "name": "electron-payload-test",
+  "version": "1.0.4",
+  "description": "Electron + payloadcms example project",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently -n \"NEXT,ELECTRON\" -c \"yellow,blue\" \"cross-env NODE_OPTIONS=--no-deprecation next dev\" \"wait-on http://localhost:3000 && electron .\"",
+    "build": "cross-env NODE_OPTIONS=--no-deprecation next build && electron-builder",
+    "start:server": "cross-env NODE_OPTIONS=--no-deprecation next start",
+    "devsafe": "rm -rf .next && cross-env NODE_OPTIONS=--no-deprecation next dev",
+    "generate:importmap": "cross-env NODE_OPTIONS=--no-deprecation payload generate:importmap",
+    "generate:types": "cross-env NODE_OPTIONS=--no-deprecation payload generate:types",
+    "postinstall": "cp -r resources/app.asar.unpacked/src src",
+    "lint": "cross-env NODE_OPTIONS=--no-deprecation next lint",
+    "payload": "cross-env NODE_OPTIONS=--no-deprecation payload",
+    "start": "cross-env NODE_OPTIONS=--no-deprecation next start"
+  },
+  "build": {
+    "files": [
+      "main/**",
+      ".next/**",
+      "node_modules/**",
+      "src/**",
+      "next.config.js",
+      "package.json"
+    ],
+    "asarUnpack": [".next/**", "node_modules/**", "src/**", "package.json"]
+  },
+  "dependencies": {
+    "@payloadcms/db-sqlite": "3.31.0",
+    "@payloadcms/next": "3.31.0",
+    "@payloadcms/payload-cloud": "3.31.0",
+    "@payloadcms/richtext-lexical": "3.31.0",
+    "cross-env": "^7.0.3",
+    "electron-is-dev": "^3.0.1",
+    "electron-log": "^5.3.3",
+    "electron-serve": "^2.1.1",
+    "electron-store": "^10.0.1",
+    "electron-updater": "^6.6.2",
+    "graphql": "^16.8.1",
+    "next": "15.2.3",
+    "payload": "3.31.0",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "sharp": "0.32.6",
+    "wait-on": "^8.0.3"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.2.0",
+    "@types/node": "^22.5.4",
+    "@types/react": "19.0.12",
+    "@types/react-dom": "19.0.4",
+    "@types/wait-on": "^5.3.4",
+    "concurrently": "^9.1.2",
+    "electron": "^35.1.2",
+    "electron-builder": "^26.0.12",
+    "eslint": "^9.16.0",
+    "eslint-config-next": "15.2.3",
+    "prettier": "^3.4.2",
+    "typescript": "5.7.3"
+  },
+  "engines": {
+    "node": "^18.20.2 || >=20.9.0",
+    "pnpm": "^9"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "sharp"
+    ]
+  }
+}
