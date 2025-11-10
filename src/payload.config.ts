@@ -6,12 +6,31 @@ import path from 'path'
 import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
 import sharp from 'sharp'
+import fs from 'fs'
 
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
+
+// Resolve database path - works in both dev and production
+// In production, process.cwd() will be the unpacked directory
+const getDbPath = () => {
+  // Try to find db.db in the current working directory or config directory
+  const cwdDbPath = path.resolve(process.cwd(), 'db.db')
+  const configDbPath = path.resolve(dirname, 'db.db')
+
+  // Use the one that exists, or default to cwd for production
+  if (fs.existsSync(cwdDbPath)) {
+    return `file:${cwdDbPath}`
+  }
+  if (fs.existsSync(configDbPath)) {
+    return `file:${configDbPath}`
+  }
+  // Default to cwd (production) or config dir (dev)
+  return `file:${path.resolve(process.cwd(), 'db.db')}`
+}
 
 export default buildConfig({
   admin: {
@@ -28,7 +47,7 @@ export default buildConfig({
   },
   db: sqliteAdapter({
     client: {
-      url: 'file:./db.db',
+      url: getDbPath(),
     },
   }),
   sharp,

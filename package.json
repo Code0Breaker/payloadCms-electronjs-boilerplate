@@ -13,7 +13,7 @@
     "devsafe": "rm -rf .next && cross-env NODE_OPTIONS=--no-deprecation next dev",
     "generate:importmap": "cross-env NODE_OPTIONS=--no-deprecation payload generate:importmap",
     "generate:types": "cross-env NODE_OPTIONS=--no-deprecation payload generate:types",
-    "postinstall": "cp -r resources/app.asar.unpacked/src src",
+    "postinstall": "if [ -d \"resources/app.asar.unpacked/src\" ]; then cp -r resources/app.asar.unpacked/src src; fi",
     "lint": "cross-env NODE_OPTIONS=--no-deprecation next lint",
     "payload": "cross-env NODE_OPTIONS=--no-deprecation payload",
     "start": "cross-env NODE_OPTIONS=--no-deprecation next start"
@@ -24,10 +24,39 @@
       ".next/**",
       "node_modules/**",
       "src/**",
-      "next.config.js",
-      "package.json"
+      "next.config.mjs",
+      "package.json",
+      "db.db"
     ],
-    "asarUnpack": [".next/**", "node_modules/**", "src/**", "package.json"]
+    "asarUnpack": [
+      ".next/**",
+      "node_modules/**",
+      "src/**",
+      "next.config.mjs",
+      "package.json",
+      "db.db"
+    ],
+    "asar": false,
+    "mac": {
+      "category": "public.app-category.utilities",
+      "target": [
+        {
+          "target": "zip",
+          "arch": [
+            "arm64"
+          ]
+        }
+      ]
+    },
+    "dmg": {
+      "title": "${productName} ${version}",
+      "background": null,
+      "format": "UDZO",
+      "window": {
+        "width": 540,
+        "height": 380
+      }
+    }
   },
   "dependencies": {
     "@payloadcms/db-sqlite": "3.31.0",

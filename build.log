@@ -1,0 +1,93 @@
+
+> electron-payload-test@1.0.4 build
+> cross-env NODE_OPTIONS=--no-deprecation next build && electron-builder
+
+   ▲ Next.js 15.2.3
+   - Environments: .env
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully
+   Linting and checking validity of types ...
+
+./src/app/(frontend)/page.tsx
+9:5  Warning: React Hook useEffect has a missing dependency: 'router'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+
+info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/app/api-reference/config/eslint#disabling-rules
+   Collecting page data ...
+   Generating static pages (0/4) ...
+   Generating static pages (1/4) 
+   Generating static pages (2/4) 
+   Generating static pages (3/4) 
+ ✓ Generating static pages (4/4)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                                 Size  First Load JS
+┌ ○ /                                      406 B         102 kB
+├ ○ /_not-found                            982 B         102 kB
+├ ƒ /admin/[[...segments]]                 351 B         515 kB
+└ ƒ /api/[...slug]                         184 B         101 kB
++ First Load JS shared by all             101 kB
+  ├ chunks/1684-1d05a79a24433c01.js      45.4 kB
+  ├ chunks/4bd1b696-1cbfe0b1c5660c59.js  53.2 kB
+  └ other shared chunks (total)          2.58 kB
+
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+
+  • electron-builder  version=26.0.12 os=24.6.0
+  • loaded configuration  file=package.json ("build" field)
+  • executing @electron/rebuild  electronVersion=35.1.2 arch=arm64 buildFromSource=false appDir=./
+  • installing native dependencies  arch=arm64
+  • preparing       moduleName=sharp arch=arm64
+  • finished        moduleName=sharp arch=arm64
+  • completed installing native dependencies
+  • packaging       platform=darwin arch=arm64 electron=35.1.2 appOutDir=dist/mac-arm64
+  • asar usage is disabled — this is strongly not recommended  solution=enable asar and use asarUnpack to unpack files that must be externally available
+  • default Electron icon is used  reason=application icon is not set
+  • asar usage is disabled — this is strongly not recommended  solution=enable asar and use asarUnpack to unpack files that must be externally available
+  • skipped macOS application code signing  reason=cannot find valid "Developer ID Application" identity or custom non-Apple code signing certificate, it could cause some undefined behaviour, e.g. macOS localized description not visible, see https://electron.build/code-signing allIdentities=  1) FD74E7DD52010FD09A709E89F265F83D4342B2DB "443cec99-aeba-4f71-97f5-ba7f445f23ab" (CSSMERR_TP_NOT_TRUSTED)
+  2) 0F2C8361190496B5F34C9C29C4A6E36374F54995 "24E9E015-23AE-4C52-8B29-DCC8FDF3175A"
+  3) 03B8239EE6D508BA9F96AAEF6A0557E3FA245097 "Forcepoint F1E NP Root CA"
+  4) CB8A5265084A1910F1D602A08BCC876DFE30DC51 "Forcepoint F1E NP Root CA"
+  5) DBAFEB176EB6C03B29962D5B25FE7AC1E0248731 "Forcepoint F1E NP Root CA"
+  6) E454890C33955F2ADFBEB06DB64CA5B2B36DD8B1 "Forcepoint F1E NP Root CA"
+  7) A59E3735EC79B112155409B1BDFE0F67B04E97EC "eEyeEmsCA" (CSSMERR_TP_NOT_TRUSTED)
+  8) 49A334F810E3B9F678A72C76D1F594312C7D3547 "eEyeEmsClient" (CSSMERR_TP_NOT_TRUSTED)
+     8 identities found
+                                                Valid identities only
+  1) 0F2C8361190496B5F34C9C29C4A6E36374F54995 "24E9E015-23AE-4C52-8B29-DCC8FDF3175A"
+  2) 03B8239EE6D508BA9F96AAEF6A0557E3FA245097 "Forcepoint F1E NP Root CA"
+  3) CB8A5265084A1910F1D602A08BCC876DFE30DC51 "Forcepoint F1E NP Root CA"
+  4) DBAFEB176EB6C03B29962D5B25FE7AC1E0248731 "Forcepoint F1E NP Root CA"
+  5) E454890C33955F2ADFBEB06DB64CA5B2B36DD8B1 "Forcepoint F1E NP Root CA"
+     5 valid identities found
+  • building        target=DMG arch=arm64 file=dist/electron-payload-test-1.0.4-arm64.dmg
+  • building        target=macOS zip arch=arm64 file=dist/electron-payload-test-1.0.4-arm64-mac.zip
+  • building block map  blockMapFile=dist/electron-payload-test-1.0.4-arm64-mac.zip.blockmap
+  • Above command failed, retrying 5 more times
+  ⨯ unable to execute hdiutil  args=["create","-srcfolder","/Users/vahan.muradyan/Desktop/payloadCms-electronjs-boilerplate/dist/mac-arm64/electron-payload-test.app","-volname","electron-payload-test 1.0.4","-anyowners","-nospotlight","-format","UDRW","-quiet","-fs","APFS","/private/var/folders/h2/1z3xjypj6wg4b_x4ws94p4xc0000gp/T/t-cYvrLm/0.dmg"] code=undefined error=Exit code: 1. Command failed: hdiutil create -srcfolder /Users/vahan.muradyan/Desktop/payloadCms-electronjs-boilerplate/dist/mac-arm64/electron-payload-test.app -volname electron-payload-test 1.0.4 -anyowners -nospotlight -format UDRW -quiet -fs APFS /private/var/folders/h2/1z3xjypj6wg4b_x4ws94p4xc0000gp/T/t-cYvrLm/0.dmg
+
+  • Above command failed, retrying 5 more times
+  ⨯ unable to execute hdiutil  args=["create","-srcfolder","/Users/vahan.muradyan/Desktop/payloadCms-electronjs-boilerplate/dist/mac-arm64/electron-payload-test.app","-volname","electron-payload-test 1.0.4","-anyowners","-nospotlight","-format","UDRW","-quiet","-fs","APFS","/private/var/folders/h2/1z3xjypj6wg4b_x4ws94p4xc0000gp/T/t-cYvrLm/0.dmg"] code=undefined error=Exit code: 1. Command failed: hdiutil create -srcfolder /Users/vahan.muradyan/Desktop/payloadCms-electronjs-boilerplate/dist/mac-arm64/electron-payload-test.app -volname electron-payload-test 1.0.4 -anyowners -nospotlight -format UDRW -quiet -fs APFS /private/var/folders/h2/1z3xjypj6wg4b_x4ws94p4xc0000gp/T/t-cYvrLm/0.dmg
+
+  • Above command failed, retrying 5 more times
+  ⨯ unable to execute hdiutil  args=["create","-srcfolder","/Users/vahan.muradyan/Desktop/payloadCms-electronjs-boilerplate/dist/mac-arm64/electron-payload-test.app","-volname","electron-payload-test 1.0.4","-anyowners","-nospotlight","-format","UDRW","-quiet","-fs","APFS","/private/var/folders/h2/1z3xjypj6wg4b_x4ws94p4xc0000gp/T/t-cYvrLm/0.dmg"] code=undefined error=Exit code: 1. Command failed: hdiutil create -srcfolder /Users/vahan.muradyan/Desktop/payloadCms-electronjs-boilerplate/dist/mac-arm64/electron-payload-test.app -volname electron-payload-test 1.0.4 -anyowners -nospotlight -format UDRW -quiet -fs APFS /private/var/folders/h2/1z3xjypj6wg4b_x4ws94p4xc0000gp/T/t-cYvrLm/0.dmg
+
+  • Above command failed, retrying 5 more times
+  ⨯ unable to execute hdiutil  args=["create","-srcfolder","/Users/vahan.muradyan/Desktop/payloadCms-electronjs-boilerplate/dist/mac-arm64/electron-payload-test.app","-volname","electron-payload-test 1.0.4","-anyowners","-nospotlight","-format","UDRW","-quiet","-fs","APFS","/private/var/folders/h2/1z3xjypj6wg4b_x4ws94p4xc0000gp/T/t-cYvrLm/0.dmg"] code=undefined error=Exit code: 1. Command failed: hdiutil create -srcfolder /Users/vahan.muradyan/Desktop/payloadCms-electronjs-boilerplate/dist/mac-arm64/electron-payload-test.app -volname electron-payload-test 1.0.4 -anyowners -nospotlight -format UDRW -quiet -fs APFS /private/var/folders/h2/1z3xjypj6wg4b_x4ws94p4xc0000gp/T/t-cYvrLm/0.dmg
+
+  • Above command failed, retrying 5 more times
+  ⨯ unable to execute hdiutil  args=["create","-srcfolder","/Users/vahan.muradyan/Desktop/payloadCms-electronjs-boilerplate/dist/mac-arm64/electron-payload-test.app","-volname","electron-payload-test 1.0.4","-anyowners","-nospotlight","-format","UDRW","-quiet","-fs","APFS","/private/var/folders/h2/1z3xjypj6wg4b_x4ws94p4xc0000gp/T/t-cYvrLm/0.dmg"] code=undefined error=Exit code: 1. Command failed: hdiutil create -srcfolder /Users/vahan.muradyan/Desktop/payloadCms-electronjs-boilerplate/dist/mac-arm64/electron-payload-test.app -volname electron-payload-test 1.0.4 -anyowners -nospotlight -format UDRW -quiet -fs APFS /private/var/folders/h2/1z3xjypj6wg4b_x4ws94p4xc0000gp/T/t-cYvrLm/0.dmg
+
+  • Above command failed, retrying 5 more times
+  ⨯ unable to execute hdiutil  args=["create","-srcfolder","/Users/vahan.muradyan/Desktop/payloadCms-electronjs-boilerplate/dist/mac-arm64/electron-payload-test.app","-volname","electron-payload-test 1.0.4","-anyowners","-nospotlight","-format","UDRW","-quiet","-fs","APFS","/private/var/folders/h2/1z3xjypj6wg4b_x4ws94p4xc0000gp/T/t-cYvrLm/0.dmg"] code=undefined error=Exit code: 1. Command failed: hdiutil create -srcfolder /Users/vahan.muradyan/Desktop/payloadCms-electronjs-boilerplate/dist/mac-arm64/electron-payload-test.app -volname electron-payload-test 1.0.4 -anyowners -nospotlight -format UDRW -quiet -fs APFS /private/var/folders/h2/1z3xjypj6wg4b_x4ws94p4xc0000gp/T/t-cYvrLm/0.dmg
+
+  ⨯ Exit code: 1. Command failed: hdiutil create -srcfolder /Users/vahan.muradyan/Desktop/payloadCms-electronjs-boilerplate/dist/mac-arm64/electron-payload-test.app -volname electron-payload-test 1.0.4 -anyowners -nospotlight -format UDRW -quiet -fs APFS /private/var/folders/h2/1z3xjypj6wg4b_x4ws94p4xc0000gp/T/t-cYvrLm/0.dmg
+  failedTask=build stackTrace=Error: Exit code: 1. Command failed: hdiutil create -srcfolder /Users/vahan.muradyan/Desktop/payloadCms-electronjs-boilerplate/dist/mac-arm64/electron-payload-test.app -volname electron-payload-test 1.0.4 -anyowners -nospotlight -format UDRW -quiet -fs APFS /private/var/folders/h2/1z3xjypj6wg4b_x4ws94p4xc0000gp/T/t-cYvrLm/0.dmg
+                                                                                                                                                                                                                                                                                                                                               at /Users/vahan.muradyan/Desktop/payloadCms-electronjs-boilerplate/node_modules/builder-util/src/util.ts:142:18
+    at ChildProcess.exithandler (node:child_process:430:5)
+    at ChildProcess.emit (node:events:514:28)
+    at maybeClose (node:internal/child_process:1105:16)
+    at Process.ChildProcess._handle.onexit (node:internal/child_process:305:5)
